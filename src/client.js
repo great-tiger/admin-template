@@ -2,17 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import App from './components/App';
-
+import Header from './components/Header';
+import './styles/bootstrap.css';
+import './styles/AdminLTE.css';
+import './styles/skins/skin-blue.css';
 ReactDOM.render(
   <AppContainer>
-    <App />
+    <Header />
   </AppContainer>,
   document.getElementById('app')
 );
-
 if (module.hot) {
-  module.hot.accept('./components/App', () => {
-    const NextApp = require('./components/App').default; // eslint-disable-line global-require
+  console.log("module.hot",module.hot);
+  module.hot.accept('./components/Header', () => {
+    const NextApp = require('./components/Header').default; // eslint-disable-line global-require
     ReactDOM.render(
       <AppContainer>
         <NextApp />
