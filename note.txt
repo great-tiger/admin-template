@@ -8,4 +8,11 @@
    所以在index.html中，我们可以看到这句话。
    <script type="text/javascript" src="/assets/app.js"></script>
 4、npm run build 生成部署文件
-   
+   生成部署文件一共有三个步骤，分别是：
+   npm run clean 清空dist目录
+   npm run copy  拷贝index.html和assets文件夹
+   webpack --progress --bail --env dist -p  使用webpack生成输出文件
+   --progress  显示进度
+   --bail      Abort the compilation on first error
+   -p          执行优化
+   --env dist  向配置文件传参
