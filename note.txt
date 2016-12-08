@@ -36,3 +36,9 @@
    extensions 自动补全的扩展名
    modules 猜测 查找模块的路径
    alias 别名 猜测 import XXX from "actions" 会把action替换成配置中的值
+6、默认生成的项目加入bootstrap后,字体引入报错。原配置中用的是file-loader,改成url-loader后解决了问题。
+  {
+    test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+    loader: 'url-loader?limit=10000&name=fonts/[hash:8].[name].[ext]'
+  }
+7、
