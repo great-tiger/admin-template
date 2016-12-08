@@ -1,0 +1,38 @@
+1、webpack-dev-server --open --env dev 
+--env 向 webpack.config.js 传递参数 具体查看 webpack help
+2、内敛样式要这么写：style={{width:20+'%'}}
+3、npm start 启动开发环境
+   入口文件为 ./src/client.js  虽然Base.js中配置的index.js，但是在Dev.js和Dist.js中都重写了。
+   输出文件为 app.js
+   publicPath: './assets/' 开发时，可以从这个目录获取文件。实质上webpack-dev-server 会把文件缓存在内存中，并未存入到该路径中。
+   所以在index.html中，我们可以看到这句话。
+   <script type="text/javascript" src="/assets/app.js"></script>
+4、npm run build 生成部署文件
+   生成部署文件一共有三个步骤，分别是：
+   npm run clean 清空dist目录
+   npm run copy  拷贝index.html和assets文件夹
+   webpack --progress --bail --env dist -p  使用webpack生成输出文件
+   --progress  显示进度
+   --bail      Abort the compilation on first error
+   -p          执行优化
+   --env dist  向配置文件传参
+5、resolve 字段，如何获取模块有关
+     resolve: {
+        alias: {
+          actions: `${this.srcPathAbsolute}/actions/`,
+          components: `${this.srcPathAbsolute}/components/`,
+          config: `${this.srcPathAbsolute}/config/${this.env}.js`,
+          images: `${this.srcPathAbsolute}/images/`,
+          sources: `${this.srcPathAbsolute}/sources/`,
+          stores: `${this.srcPathAbsolute}/stores/`,
+          styles: `${this.srcPathAbsolute}/styles/`
+        },
+        extensions: ['.js', '.jsx'], 
+        modules: [
+          this.srcPathAbsolute,
+          'node_modules'
+        ]
+      }
+   extensions 自动补全的扩展名
+   modules 猜测 查找模块的路径
+   alias 别名 猜测 import XXX from "actions" 会把action替换成配置中的值
