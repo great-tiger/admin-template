@@ -16,3 +16,23 @@
    --bail      Abort the compilation on first error
    -p          执行优化
    --env dist  向配置文件传参
+5、resolve 字段，如何获取模块有关
+     resolve: {
+        alias: {
+          actions: `${this.srcPathAbsolute}/actions/`,
+          components: `${this.srcPathAbsolute}/components/`,
+          config: `${this.srcPathAbsolute}/config/${this.env}.js`,
+          images: `${this.srcPathAbsolute}/images/`,
+          sources: `${this.srcPathAbsolute}/sources/`,
+          stores: `${this.srcPathAbsolute}/stores/`,
+          styles: `${this.srcPathAbsolute}/styles/`
+        },
+        extensions: ['.js', '.jsx'], 
+        modules: [
+          this.srcPathAbsolute,
+          'node_modules'
+        ]
+      }
+   extensions 自动补全的扩展名
+   modules 猜测 查找模块的路径
+   alias 别名 猜测 import XXX from "actions" 会把action替换成配置中的值
