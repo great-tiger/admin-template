@@ -2,7 +2,7 @@
 --env 向 webpack.config.js 传递参数 具体查看 webpack help
 2、内敛样式要这么写：style={{width:20+'%'}}
 3、npm start 启动开发环境
-   入口文件为 ./src/index.js
+   入口文件为 ./src/client.js  虽然Base.js中配置的index.js，但是在Dev.js和Dist.js中都重写了。
    输出文件为 app.js
    publicPath: './assets/' 开发时，可以从这个目录获取文件。实质上webpack-dev-server 会把文件缓存在内存中，并未存入到该路径中。
    所以在index.html中，我们可以看到这句话。
