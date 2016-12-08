@@ -1,2 +1,3 @@
-webpack-dev-server --open --env dev 
+1、webpack-dev-server --open --env dev 
 --env 向 webpack.config.js 传递参数 具体查看 webpack help
+2、内敛样式要这么写：style={{width:20+'%'}}

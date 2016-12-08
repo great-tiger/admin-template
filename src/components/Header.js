@@ -4,9 +4,7 @@ export default class Header extends React.Component {
         return (
          <div className="skin-blue">
               <header className="main-header">
-                  <a href="../../index2.html" className="logo">
-              AdminLTE
-            </a>
+                  <a href="../../index2.html" className="logo">AdminLTE</a>
                   <nav className="navbar navbar-static-top" role="navigation">
                       <div className="navbar-custom-menu">
                           <ul className="nav navbar-nav">
@@ -72,7 +70,7 @@ export default class Header extends React.Component {
                                 <small className="pull-right">20%</small>
                               </h3>
                                                       <div className="progress xs">
-                                                          <div className="progress-bar progress-bar-aqua" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                          <div className="progress-bar progress-bar-aqua" style={{width:20+'%'}} role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                               <span className="sr-only">20% Complete</span>
                                                           </div>
                                                       </div>
