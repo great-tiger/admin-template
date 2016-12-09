@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import user  from '../images/admin-img/user2-160x160.jpg';
 export default class MainSidebar extends React.Component {
     render() {
         return (
@@ -8,7 +9,7 @@ export default class MainSidebar extends React.Component {
     
     <div className="user-panel">
       <div className="pull-left image">
-        <img src="../images/admin-img/user2-160x160.jpg" className="img-circle" alt="User Image" />
+        <img src={user} className="img-circle" alt="User Image" />
       </div>
       <div className="pull-left info">
         <p>User Name111</p>
