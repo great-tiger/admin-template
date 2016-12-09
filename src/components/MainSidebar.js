@@ -12,7 +12,7 @@ export default class MainSidebar extends React.Component {
         <img src={user} className="img-circle" alt="User Image" />
       </div>
       <div className="pull-left info">
-        <p>User Name111</p>
+        <p>User Name</p>
 
         <a href="#"><i className="fa fa-circle text-success"></i> Online</a>
       </div>

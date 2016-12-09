@@ -3,7 +3,7 @@ export default class Header extends React.Component {
     render() {
         return (
               <header className="main-header">
-                  <a href="../../index2.html" className="logo">AdminLTE</a>
+                  <a href="../../index2.html" className="logo">铺王小二</a>
                   <nav className="navbar navbar-static-top" role="navigation">
                       <div className="navbar-custom-menu">
                           <ul className="nav navbar-nav">
