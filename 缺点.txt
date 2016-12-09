@@ -1,2 +1,5 @@
 1、不同的资源放到不同的文件夹中
    使用一个库时，需要把资源分开。
+2、<script type="text/javascript" src="/assets/app.js"></script>
+   引用app.js是通过／开头，造成打包出的程序，只能发布到网站根目录。
+
