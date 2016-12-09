@@ -2,7 +2,6 @@ import React from 'react'
 export default class Header extends React.Component {
     render() {
         return (
-         <div className="skin-blue">
               <header className="main-header">
                   <a href="../../index2.html" className="logo">AdminLTE</a>
                   <nav className="navbar navbar-static-top" role="navigation">
@@ -120,7 +119,6 @@ export default class Header extends React.Component {
                       </div>
                   </nav>
               </header>
-          </div>
         );
     }
 }

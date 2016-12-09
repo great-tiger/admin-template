@@ -6,9 +6,14 @@ import Header from './components/Header';
 import './styles/bootstrap.css';
 import './styles/AdminLTE.css';
 import './styles/skins/skin-blue.css';
+import MainSidebar from './components/MainSidebar';
+
 ReactDOM.render(
   <AppContainer>
-    <Header />
+    <div className="skin-blue">
+      <Header />
+      <MainSidebar />
+    </div>
   </AppContainer>,
   document.getElementById('app')
 );
