@@ -48,4 +48,13 @@
   import user  from '../images/admin-img/user2-160x160.jpg';
   <img src={user} className="img-circle" alt="User Image" />
   如果就是想直接使用img地址，则可以把图片放到static中，因为该文件夹中的东西，会被直接拷贝到dist目录中。
-8、
+
+  但是css中直接引用的img font都被打包了。
+
+8、默认生成的项目加入bootstrap后,字体引入报错。原配置中用的是file-loader,改成url-loader后解决了问题。
+  {
+    test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+    loader: 'url-loader?limit=10000&name=fonts/[hash:8].[name].[ext]'
+  }
+  翻看源码发现url-loader使用了file-loader
+9、
