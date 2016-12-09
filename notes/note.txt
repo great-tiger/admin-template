@@ -36,3 +36,11 @@
    extensions 自动补全的扩展名
    modules 猜测 查找模块的路径
    alias 别名 猜测 import XXX from "actions" 会把action替换成配置中的值
+6、
+   {
+      test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: 'url-loader?limit=10000&name=fonts/[hash:8].[name].[ext]'
+   }
+  该generator加入bootstrap后报错，改换loader后可以了，默认用的fileloader。
+  limit 表示小于该值则输出内敛。
+  name  指定输出文件名。name=fonts/[hash:8].[name].[ext] 表示输出到fonts文件夹下。
