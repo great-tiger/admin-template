@@ -44,3 +44,8 @@
   该generator加入bootstrap后报错，改换loader后可以了，默认用的fileloader。
   limit 表示小于该值则输出内敛。
   name  指定输出文件名。name=fonts/[hash:8].[name].[ext] 表示输出到fonts文件夹下。
+7、注意，在图片标签中直接使用src路径，并不会触发loader。图片并不会被webpack大包。需要写成
+  import user  from '../images/admin-img/user2-160x160.jpg';
+  <img src={user} className="img-circle" alt="User Image" />
+  如果就是想直接使用img地址，则可以把图片放到static中，因为该文件夹中的东西，会被直接拷贝到dist目录中。
+8、
