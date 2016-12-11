@@ -2,10 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import App from './components/App';
+import ProjectList from './components/ProjectList/ProjectList.js';
+import NoticeList from './components/NoticeList/NoticeList.js';
+import Home from './components/Home/Home.js';
 
+import {Router,Route,hashHistory,IndexRoute} from 'react-router';
 ReactDOM.render(
   <AppContainer>
-    <App />
+    <Router history={hashHistory}>
+        <Route path="/" component={App} >
+          <IndexRoute component={Home} />
+          <Route path="/pl" component={ProjectList}/>
+          <Route path="/nl" component={NoticeList}/>
+        </Route>
+    </Router>
   </AppContainer>,
   document.getElementById('app')
 );
@@ -17,7 +27,13 @@ if (module.hot) {
     const NextApp = require('./components/App').default; // eslint-disable-line global-require
     ReactDOM.render(
       <AppContainer>
-        <NextApp />
+         <Router history={hashHistory}>
+            <Route path="/" component={App} >
+              <IndexRoute component={Home} />
+              <Route path="/pl" component={ProjectList}/>
+              <Route path="/nl" component={NoticeList}/>
+            </Route>
+        </Router>
       </AppContainer>,
       document.getElementById('app')
     );

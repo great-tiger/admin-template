@@ -12,7 +12,9 @@ class AppComponent extends React.Component {
        <div className="skin-blue">
         <Header />
         <MainSidebar />
-        <ContentWrapper />
+        <div className="content-wrapper">
+          {this.props.children}
+        </div>
       </div>
     );
   }

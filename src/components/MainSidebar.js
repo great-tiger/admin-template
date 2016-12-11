@@ -32,10 +32,10 @@ export default class MainSidebar extends React.Component {
     <ul className="sidebar-menu">
       <li className="header">HEADER</li>
       
-      <li className="active"><a href="#"><span>Link</span></a></li>
-      <li><a href="#"><span>Another Link</span></a></li>
+      <li className="active"><a href="#"><span>Home</span></a></li>
+      <li><a href="#/pl"><span>porjeclist</span></a></li>
       <li className="treeview">
-        <a href="#"><span>Multilevel</span> <i className="fa fa-angle-left pull-right"></i></a>
+        <a href="#/nl"><span>noticelist</span> <i className="fa fa-angle-left pull-right"></i></a>
         <ul className="treeview-menu">
           <li><a href="#">Link in level 2</a></li>
           <li><a href="#">Link in level 2</a></li>
