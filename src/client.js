@@ -16,7 +16,7 @@ ReactDOM.render(
   <AppContainer>
     <Provider store={store}>
       <Router history={hashHistory}>
-       {routes()}
+       {routes}
       </Router>
     </Provider>
   </AppContainer>,
@@ -32,7 +32,23 @@ if (module.hot) {
       <AppContainer>
          <Provider store={store}>
            <Router history={hashHistory}>
-               {routes()}
+               {routes}
+          </Router>
+        </Provider>
+      </AppContainer>,
+      document.getElementById('app')
+    );
+  });
+}
+if (module.hot) {
+  console.log("module.hot",module.hot);
+  module.hot.accept('./routers.js', () => {
+    const NextApp = require('./components/App').default; // eslint-disable-line global-require
+    ReactDOM.render(
+      <AppContainer>
+         <Provider store={store}>
+           <Router history={hashHistory}>
+               {routes}
           </Router>
         </Provider>
       </AppContainer>,
