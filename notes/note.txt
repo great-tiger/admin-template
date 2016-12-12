@@ -74,3 +74,23 @@
       <DevTools />
     </div>
   </Provider>
+10、`You cannot change <Router routes>; it will be ignored` when hot-loading
+解决这个问题的办法就是它router提出来，这样每次hot-loading的时候，就没有warning了。
+
+if (module.hot) {
+  console.log("module.hot",module.hot);
+  module.hot.accept('./components/App', () => {
+    const NextApp = require('./components/App').default; // eslint-disable-line global-require
+    ReactDOM.render(
+      <AppContainer>
+         <Provider store={store}>
+           <Router history={hashHistory}>
+               {routes()}
+          </Router>
+        </Provider>
+      </AppContainer>,
+      document.getElementById('app')
+    );
+  });
+}
+11、

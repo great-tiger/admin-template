@@ -7,7 +7,7 @@ import '../styles/skins/skin-blue.css';
 import MainSidebar from '../components/MainSidebar';
 import ContentWrapper from '../components/ContentWrapper';
 class AppComponent extends React.Component {
-
+ 
   render() {
     return (
        <div className="skin-blue">

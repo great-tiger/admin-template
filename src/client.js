@@ -3,27 +3,20 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import App from './components/App';
-import ProjectList from './components/ProjectList/ProjectList.js';
-import NoticeList from './components/NoticeList/NoticeList.js';
-import Home from './components/Home/Home.js';
 import {Router,Route,hashHistory,IndexRoute} from 'react-router';
-
+import routes from './routers.js';
 function todoApp(state={},type){
   return state;
 }
 
 let store = createStore(todoApp);
 
+
 ReactDOM.render(
   <AppContainer>
     <Provider store={store}>
       <Router history={hashHistory}>
-          <Route path="/" component={App} >
-            <IndexRoute component={Home} />
-            <Route path="/pl" component={ProjectList}/>
-            <Route path="/nl" component={NoticeList}/>
-          </Route>
+       {routes()}
       </Router>
     </Provider>
   </AppContainer>,
@@ -39,11 +32,7 @@ if (module.hot) {
       <AppContainer>
          <Provider store={store}>
            <Router history={hashHistory}>
-              <Route path="/" component={App} >
-                <IndexRoute component={Home} />
-                <Route path="/pl" component={ProjectList}/>
-                <Route path="/nl" component={NoticeList}/>
-              </Route>
+               {routes()}
           </Router>
         </Provider>
       </AppContainer>,
