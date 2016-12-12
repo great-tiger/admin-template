@@ -1,21 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import App from './components/App';
 import ProjectList from './components/ProjectList/ProjectList.js';
 import NoticeList from './components/NoticeList/NoticeList.js';
 import Home from './components/Home/Home.js';
-
 import {Router,Route,hashHistory,IndexRoute} from 'react-router';
+
+function todoApp(state={},type){
+  return state;
+}
+
+let store = createStore(todoApp);
+
 ReactDOM.render(
   <AppContainer>
-    <Router history={hashHistory}>
-        <Route path="/" component={App} >
-          <IndexRoute component={Home} />
-          <Route path="/pl" component={ProjectList}/>
-          <Route path="/nl" component={NoticeList}/>
-        </Route>
-    </Router>
+    <Provider store={store}>
+      <Router history={hashHistory}>
+          <Route path="/" component={App} >
+            <IndexRoute component={Home} />
+            <Route path="/pl" component={ProjectList}/>
+            <Route path="/nl" component={NoticeList}/>
+          </Route>
+      </Router>
+    </Provider>
   </AppContainer>,
   document.getElementById('app')
 );
@@ -27,13 +37,15 @@ if (module.hot) {
     const NextApp = require('./components/App').default; // eslint-disable-line global-require
     ReactDOM.render(
       <AppContainer>
-         <Router history={hashHistory}>
-            <Route path="/" component={App} >
-              <IndexRoute component={Home} />
-              <Route path="/pl" component={ProjectList}/>
-              <Route path="/nl" component={NoticeList}/>
-            </Route>
-        </Router>
+         <Provider store={store}>
+           <Router history={hashHistory}>
+              <Route path="/" component={App} >
+                <IndexRoute component={Home} />
+                <Route path="/pl" component={ProjectList}/>
+                <Route path="/nl" component={NoticeList}/>
+              </Route>
+          </Router>
+        </Provider>
       </AppContainer>,
       document.getElementById('app')
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Header from '../components/Header';
 import '../styles/bootstrap.css';
 import '../styles/AdminLTE.css';
@@ -22,5 +23,5 @@ class AppComponent extends React.Component {
 
 AppComponent.defaultProps = {
 };
-
-export default AppComponent;
+//被connect的组件，AppComponent 只关心this.props.dispatch就行了。
+export default connect()(AppComponent);
