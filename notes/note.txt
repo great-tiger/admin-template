@@ -60,3 +60,17 @@
 9、react-router-redux 不是必须的，使用它可以向store中保存一些状态信息，比如URL。解决的是:react-router与redux之间的问题。
 没有react-router-redux，react react-redux redux react-router 之间也可以很好的工作。
 什么时候需要使用它呢，调试的时候，可能会需要它。
+
+也就是说，下面的代码中，store会被正常的传入到App,Home等组件中。在App等组件中，正常使用connect就可以了。
+<Provider store={store}>
+    <div>
+      <Router history={history}>
+        <Route path="/" component={App}>
+          <IndexRoute component={Home}/>
+          <Route path="foo" component={Foo}/>
+          <Route path="bar" component={Bar}/>
+        </Route>
+      </Router>
+      <DevTools />
+    </div>
+  </Provider>
